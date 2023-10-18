@@ -18,7 +18,7 @@ const camera = new THREE.PerspectiveCamera(
 camera.position.z = 3;
 
 /** ---Renderer--- */
-const renderer = new THREE.WebGLRenderer({ canvas: $canvas });
+const renderer = new THREE.WebGLRenderer({ canvas: $canvas, antialias: false });
 renderer.setSize(window.innerWidth, window.innerHeight);
 
 /** ---Controls--- */
@@ -32,6 +32,10 @@ loadingManager.onLoad = () => console.log("loaded");
 
 const loader = new THREE.TextureLoader(loadingManager);
 const alpha = loader.load("/alpha-map.jpg");
+
+alpha.generateMipmaps = false;
+alpha.minFilter = THREE.NearestFilter;
+alpha.magFilter = THREE.NearestFilter;
 const matcap1 = loader.load("/chrome.png");
 
 /** ---Objects--- */
