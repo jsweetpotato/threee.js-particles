@@ -66,7 +66,7 @@ const particles = new THREE.Points(bufferGeometry, particlesMaterial);
 scene.add(particles);
 
 /** ---Gui--- */
-const gui = new GUI();
+// const gui = new GUI();
 
 // gui
 //   .add(particles, "geometry", {
