@@ -37,7 +37,7 @@ const matcap1 = loader.load("/chrome.png");
 /** ---Objects--- */
 
 // Geometry
-const count = 1000;
+const count = 100;
 const positionArray = new Float32Array(count * 3);
 
 for (let i = 0; i < positionArray.length; i++) {
@@ -62,23 +62,23 @@ const particlesMaterial = new THREE.PointsMaterial({
 });
 particlesMaterial.transparent = true;
 
-const particles = new THREE.Points(sphereGeometry, particlesMaterial);
+const particles = new THREE.Points(bufferGeometry, particlesMaterial);
 scene.add(particles);
 
 /** ---Gui--- */
 const gui = new GUI();
 
-gui
-  .add(particles, "geometry", {
-    BoxGeometry: boxGeometry,
-    SphereGeometry: sphereGeometry,
-    BufferGeometry: bufferGeometry,
-  })
-  .onChange(() => {
-    renderer.render(scene, camera);
-  });
-gui.add(particlesMaterial, "size", 0.01, 0.1, 0.001);
-gui.addColor(particlesMaterial, "color");
+// gui
+//   .add(particles, "geometry", {
+//     BoxGeometry: boxGeometry,
+//     SphereGeometry: sphereGeometry,
+//     BufferGeometry: bufferGeometry,
+//   })
+//   .onChange(() => {
+//     renderer.render(scene, camera);
+//   });
+// gui.add(particlesMaterial, "size", 0.01, 0.1, 0.001);
+// gui.addColor(particlesMaterial, "color");
 
 /** Animate */
 const animate = () => {
